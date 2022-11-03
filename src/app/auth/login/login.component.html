@@ -1,0 +1,25 @@
+<p>auth/login works!</p>
+<hr />
+<mat-form-field>
+  <input matInput placeholder="Email" type="email" [(ngModel)]="email" />
+</mat-form-field>
+<br />
+<mat-form-field>
+  <input
+    matInput
+    placeholder="Password"
+    type="password"
+    [(ngModel)]="password"
+  />
+</mat-form-field>
+<br />
+<button mat-raised-button color="primary" (click)="fakeLogin()">Login</button>
+<hr />
+<a [routerLink]="['/auth/reset']" routerLinkActive="router-link-active"
+  >Reset Password</a
+>
+-
+<a [routerLink]="['/auth/forgot']" routerLinkActive="router-link-active"
+  >Forgot Password</a
+>
+-
