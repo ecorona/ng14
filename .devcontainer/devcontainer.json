@@ -11,19 +11,28 @@
   "customizations": {
     "vscode": {
       "extensions": [
-		"johnpapa.Angular2",
-		"formulahendry.auto-rename-tag",
-		"aaron-bond.better-comments",
-		"alefragnani.Bookmarks",
-		"PKief.material-icon-theme",
-		"csstools.postcss",
-		"pkosta2006.rxjs-snippets",
-		"Zarifprogrammer.tailwind-snippets",
-		"eamodio.gitlens",
-		"Angular.ng-template",
-		"GitHub.copilot",
-		"esbenp.prettier-vscode"
-	]
+        "angular.ng-template",
+        "johnpapa.angular-essentials",
+        "formulahendry.auto-rename-tag",
+        "steoates.autoimport",
+        "aaron-bond.better-comments",
+        "alefragnani.bookmarks",
+        "bitbelt.converttoasciiart",
+        "ms-vscode-remote.remote-containers",
+        "ms-azuretools.vscode-docker",
+        "editorconfig.editorconfig",
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "visualstudioexptteam.intellicode-api-usage-examples",
+        "ms-vsliveshare.vsliveshare",
+        "pkief.material-icon-theme",
+        "christian-kohler.path-intellisense",
+        "esbenp.prettier-vscode",
+        "dzhavat.rxjs-cheatsheet",
+        "pkosta2006.rxjs-snippets",
+        "gruntfuggly.todo-tree",
+        "kisstkondoros.typelens"
+      ]
     }
   }
 
