@@ -25,7 +25,7 @@ export class NoSessionGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (!this.authService.token) {
+    if (!this.authService.isLoggedIn()) {
       return true;
     }
     this.toast.message('No puede acceder a esta ruta', 'Ok');

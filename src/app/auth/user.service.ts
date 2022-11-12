@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 import { Perfiles } from './models/perfiles.enum';
@@ -13,8 +12,6 @@ export class UserService {
     {} as Usuario
   );
 
-  constructor(private readonly http: HttpClient) {}
-
   set user(user: Usuario) {
     this.usuarioObj = user;
     this.userSubject.next(user);
@@ -26,12 +23,12 @@ export class UserService {
 
   //obtener la identidad del usuario del api
   getIdentity(): Observable<Usuario> {
-    //TODO: implementar
+    //implementar
     const mockUser: Usuario = {
       nombre: 'Juan',
       email: 'juan@live.com',
       id: '1',
-      perfil: Perfiles.CIUDADANO,
+      perfil: Perfiles.ADMIN,
     };
     return of<Usuario>(mockUser).pipe(
       tap((usuario) => {

@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ForgotModule } from './forgot/forgot.module';
@@ -6,6 +7,12 @@ import { ResetModule } from './reset/reset.module';
 
 @NgModule({
   declarations: [],
-  imports: [ForgotModule, LoginModule, ResetModule, CommonModule],
+  imports: [
+    ForgotModule,
+    LoginModule,
+    ResetModule,
+    CommonModule,
+    HttpClientModule,
+  ],
 })
 export class AuthModule {}

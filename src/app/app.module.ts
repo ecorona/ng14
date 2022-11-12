@@ -12,7 +12,6 @@ registerLocaleData(localeEsMx, 'es-MX');
 
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MaterialCommonModule } from './common/material.module';
 
 @NgModule({

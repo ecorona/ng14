@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.
 
+## SonarScan
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ecorona_ng14&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ecorona_ng14)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

@@ -21,6 +21,9 @@
     "dzhavat.rxjs-cheatsheet",
     "pkosta2006.rxjs-snippets",
     "gruntfuggly.todo-tree",
-    "kisstkondoros.typelens"
+    "kisstkondoros.typelens",
+    "bradlc.vscode-tailwindcss",
+    "austenc.tailwind-docs",
+    "zarifprogrammer.tailwind-snippets"
   ]
 }
