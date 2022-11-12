@@ -1,4 +1,5 @@
 <div id="header">
-  <p>layout/components/header works!</p>
+  <p *ngIf="user?.nombre">Hola {{ user?.nombre }}</p>
+  <p *ngIf="!user?.nombre">layout/components/header works!</p>
   <app-menu></app-menu>
 </div>

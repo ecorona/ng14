@@ -2,9 +2,10 @@ import { HomeModule } from './home/home.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileModule } from './profile/profile.module';
+import { ConfigModule } from './config/config.module';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, HomeModule, ProfileModule],
+  imports: [CommonModule, HomeModule, ProfileModule, ConfigModule],
 })
 export class AdminModule {}

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
 import { ToastService } from '../common/services/toast.service';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,8 @@ export class AuthService {
   private readonly _tokenKey = 'token724572456245';
   constructor(
     private readonly http: HttpClient,
-    private readonly toast: ToastService
+    private readonly toast: ToastService,
+    private readonly userService: UserService
   ) {}
 
   set token(token: string) {
@@ -37,6 +39,7 @@ export class AuthService {
         tap((response) => {
           this.toast.message('Bienvenido');
           this.token = response.authToken;
+          this.userService.getIdentity().subscribe();
         })
       );
   }
@@ -45,6 +48,8 @@ export class AuthService {
   fakeLogin(): Observable<{ authToken: string }> {
     return of({ authToken: 'fakeToken' }).pipe(
       tap((response) => {
+        //obtener la identidad el usuario en este token
+        this.userService.getIdentity().subscribe();
         this.toast.message('Bienvenido');
         this.token = response.authToken;
       })

@@ -4,12 +4,13 @@ import { CommonModule } from '@angular/common';
 
 import { HomeComponent } from './home.component';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminGuard } from 'src/app/auth/admin.guard';
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    canActivate: [SessionGuard],
+    canActivate: [SessionGuard, AdminGuard],
   },
 ];
 
