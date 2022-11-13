@@ -19,13 +19,16 @@ export class LoginComponent implements OnInit {
     console.log('Is logged in?', this.authService.isLoggedIn());
   }
 
-  fakeLogin() {
-    this.authService.fakeLogin().subscribe({
+  login() {
+    this.authService.login(this.email, this.password).subscribe({
       next: (result) => {
         this.router.navigate(['/admin/home'], {
           replaceUrl: true,
           relativeTo: null,
         });
+      },
+      error: (error) => {
+        console.log(error);
       },
     });
   }

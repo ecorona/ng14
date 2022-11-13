@@ -1,12 +1,16 @@
+import { environment } from './../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, tap } from 'rxjs';
-import { Perfiles } from './models/perfiles.enum';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Usuario } from './models/usuario.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+  constructor(private readonly http: HttpClient) {
+    this.getIdentity().subscribe();
+  }
   usuarioObj: Usuario | undefined;
   private userSubject: BehaviorSubject<Usuario> = new BehaviorSubject<Usuario>(
     {} as Usuario
@@ -23,17 +27,12 @@ export class UserService {
 
   //obtener la identidad del usuario del api
   getIdentity(): Observable<Usuario> {
-    //implementar
-    const mockUser: Usuario = {
-      nombre: 'Juan',
-      email: 'juan@live.com',
-      id: '1',
-      perfil: Perfiles.ADMIN,
-    };
-    return of<Usuario>(mockUser).pipe(
-      tap((usuario) => {
-        this.user = usuario;
-      })
-    );
+    return this.http
+      .get<Usuario>(`${environment.apiUrl}/usuarios/me/identity`)
+      .pipe(
+        tap((usuario) => {
+          this.user = usuario;
+        })
+      );
   }
 }

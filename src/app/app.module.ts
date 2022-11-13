@@ -1,3 +1,4 @@
+import { AuthInterceptor } from './auth/auth.interceptor';
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -10,7 +11,7 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app-routes';
 registerLocaleData(localeEsMx, 'es-MX');
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { MaterialCommonModule } from './common/material.module';
 
@@ -25,6 +26,7 @@ import { MaterialCommonModule } from './common/material.module';
     MaterialCommonModule,
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     {
       provide: DEFAULT_CURRENCY_CODE,
       useValue: 'MXN',
