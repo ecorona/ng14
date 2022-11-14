@@ -4,6 +4,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from 'src/app/auth/user.service';
 import { Usuario } from 'src/app/auth/models/usuario.model';
 import { Subject, takeUntil } from 'rxjs';
+import { ToastService } from 'src/app/common/services/toast.service';
 
 @Component({
   selector: 'app-profile',
@@ -17,6 +18,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   constructor(
     private readonly auth: AuthService,
     private readonly router: Router,
+    private readonly toast: ToastService,
     private readonly userService: UserService
   ) {}
 
@@ -39,6 +41,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.auth.logout().subscribe({
       next: (logedOut) => {
         if (logedOut) {
+          this.toast.message('Hasta luego');
           this.router.navigate(['/auth/login'], {
             replaceUrl: true,
             relativeTo: null,

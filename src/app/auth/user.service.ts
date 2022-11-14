@@ -8,9 +8,7 @@ import { Usuario } from './models/usuario.model';
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private readonly http: HttpClient) {
-    this.loadUser().subscribe();
-  }
+  constructor(private readonly http: HttpClient) {}
   usuarioObj: Usuario | undefined;
   private userSubject: BehaviorSubject<Usuario> = new BehaviorSubject<Usuario>(
     {} as Usuario

@@ -2,7 +2,6 @@ import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
-import { ToastService } from '../common/services/toast.service';
 import { LoginResponse } from './models/login-response.model';
 
 @Injectable({
@@ -10,10 +9,7 @@ import { LoginResponse } from './models/login-response.model';
 })
 export class AuthService {
   private readonly _tokenKey = 'token724572456245';
-  constructor(
-    private readonly http: HttpClient,
-    private readonly toast: ToastService
-  ) {}
+  constructor(private readonly http: HttpClient) {}
 
   set token(token: string) {
     localStorage.setItem(this._tokenKey, token);
@@ -36,7 +32,6 @@ export class AuthService {
       })
       .pipe(
         tap((response) => {
-          this.toast.message('Bienvenido');
           this.token = response.accessToken;
         })
       );
@@ -44,7 +39,6 @@ export class AuthService {
 
   logout(): Observable<boolean> {
     this.token = '';
-    this.toast.message('Hasta luego');
     return of(true);
   }
 }
