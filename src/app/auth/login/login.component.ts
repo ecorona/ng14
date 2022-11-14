@@ -1,3 +1,4 @@
+import { UserService } from 'src/app/auth/user.service';
 import { Router } from '@angular/router';
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private readonly authService: AuthService,
+    private readonly userService: UserService,
     private readonly router: Router
   ) {}
 
@@ -22,6 +24,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.authService.login(this.email, this.password).subscribe({
       next: (result) => {
+        this.userService.user = result.usuario;
         this.router.navigate(['/admin/home'], {
           replaceUrl: true,
           relativeTo: null,

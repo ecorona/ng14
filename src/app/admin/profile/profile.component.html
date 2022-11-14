@@ -1,5 +1,45 @@
 <p>admin/profile works!</p>
 <hr />
-<pre>{{ user | json }}</pre>
+<div>
+  <label class="w-24 inline-block" for="">Nombre:</label>
+  <span class="font-bold">
+    {{ user?.nombre }}
+  </span>
+</div>
+
+<div>
+  <label class="w-24 inline-block" for="">Apellidos:</label>
+  <span class="font-bold">
+    {{ user?.apellido }}
+  </span>
+</div>
+
+<div>
+  <label class="w-24 inline-block" for="">Email:</label>
+  <span class="font-bold">
+    {{ user?.email }}
+  </span>
+</div>
+
+<div>
+  <label class="w-24 inline-block" for="">Perfil:</label>
+  <span class="font-bold">
+    {{ user?.perfil }}
+  </span>
+</div>
+
+<div>
+  <label class="w-24 inline-block" for="">Creado:</label>
+  <span class="font-bold">
+    {{ user?.createdAt | date }}
+  </span>
+</div>
+
+<div>
+  <label class="w-24 inline-block" for="">Modificado:</label>
+  <span class="font-bold">
+    {{ user?.updatedAt | date }}
+  </span>
+</div>
 <hr />
-<button mat-rised-button (click)="logout()">Logout</button>
+<button mat-raised-button color="primary" (click)="logout()">Logout</button>

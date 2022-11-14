@@ -9,7 +9,7 @@ import { Usuario } from './models/usuario.model';
 })
 export class UserService {
   constructor(private readonly http: HttpClient) {
-    this.getIdentity().subscribe();
+    this.loadUser().subscribe();
   }
   usuarioObj: Usuario | undefined;
   private userSubject: BehaviorSubject<Usuario> = new BehaviorSubject<Usuario>(
@@ -26,7 +26,7 @@ export class UserService {
   }
 
   //obtener la identidad del usuario del api
-  getIdentity(): Observable<Usuario> {
+  loadUser(): Observable<Usuario> {
     return this.http
       .get<Usuario>(`${environment.apiUrl}/usuarios/me/identity`)
       .pipe(
