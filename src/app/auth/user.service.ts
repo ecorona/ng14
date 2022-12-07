@@ -2,34 +2,33 @@ import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { Usuario } from './models/usuario.model';
+import { Ciudadano } from './models/ciudadano.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   constructor(private readonly http: HttpClient) {}
-  usuarioObj: Usuario | undefined;
-  private userSubject: BehaviorSubject<Usuario> = new BehaviorSubject<Usuario>(
-    {} as Usuario
-  );
+  ciudadanoObj: Ciudadano = {} as Ciudadano;
+  private ciudadanoSubject: BehaviorSubject<Ciudadano> =
+    new BehaviorSubject<Ciudadano>({} as Ciudadano);
 
-  set user(user: Usuario) {
-    this.usuarioObj = user;
-    this.userSubject.next(user);
+  set ciudadano(ciudadano: Ciudadano) {
+    this.ciudadanoObj = ciudadano;
+    this.ciudadanoSubject.next(ciudadano);
   }
 
-  get user$(): Observable<Usuario> {
-    return this.userSubject.asObservable();
+  get ciudadano$(): Observable<Ciudadano> {
+    return this.ciudadanoSubject.asObservable();
   }
 
   //obtener la identidad del usuario del api
-  loadUser(): Observable<Usuario> {
+  loadUser(): Observable<Ciudadano> {
     return this.http
-      .get<Usuario>(`${environment.apiUrl}/usuarios/me/identity`)
+      .get<Ciudadano>(`${environment.apiUrl}/private-ciudadanos/mi/perfil`)
       .pipe(
-        tap((usuario) => {
-          this.user = usuario;
+        tap((ciudadano) => {
+          this.ciudadano = ciudadano;
         })
       );
   }

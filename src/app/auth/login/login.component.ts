@@ -26,9 +26,9 @@ export class LoginComponent implements OnInit {
   login() {
     this.authService.login(this.email, this.password).subscribe({
       next: (result) => {
-        this.userService.user = result.usuario;
+        this.userService.ciudadano = result.ciudadano;
         this.toast.message('Bienvenido');
-        this.router.navigate(['/admin/home'], {
+        this.router.navigate(['/admin/profile'], {
           replaceUrl: true,
           relativeTo: null,
         });

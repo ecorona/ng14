@@ -1,4 +1,3 @@
-import { AdminGuard } from './../../auth/admin.guard';
 import { SessionGuard } from './../../auth/session.guard';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -11,7 +10,7 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
-    canActivate: [SessionGuard, AdminGuard],
+    canActivate: [SessionGuard],
   },
 ];
 

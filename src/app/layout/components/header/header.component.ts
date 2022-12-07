@@ -1,6 +1,6 @@
+import { Ciudadano } from './../../../auth/models/ciudadano.model';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
-import { Usuario } from 'src/app/auth/models/usuario.model';
 import { UserService } from 'src/app/auth/user.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { UserService } from 'src/app/auth/user.service';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  user: Usuario | undefined;
+  ciudadano: Ciudadano | undefined;
 
   private unsubscribeAll: Subject<any> = new Subject<any>();
 
@@ -21,10 +21,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.userService.user$
+    this.userService.ciudadano$
       .pipe(takeUntil(this.unsubscribeAll))
-      .subscribe((user) => {
-        this.user = user;
+      .subscribe((ciudadano) => {
+        this.ciudadano = ciudadano;
       });
   }
 }

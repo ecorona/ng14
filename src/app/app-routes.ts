@@ -15,6 +15,10 @@ export const appRoutes: Routes = [
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
+    path: 'faq',
+    loadChildren: () => import('./faq/faq.module').then((m) => m.FaqModule),
+  },
+  {
     path: '**',
     redirectTo: 'home/welcome',
   },

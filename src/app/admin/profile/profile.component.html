@@ -3,42 +3,42 @@
 <div>
   <label class="w-24 inline-block" for="">Nombre:</label>
   <span class="font-bold">
-    {{ user?.nombre }}
+    {{ ciudadano?.nombres }}
   </span>
 </div>
 
 <div>
   <label class="w-24 inline-block" for="">Apellidos:</label>
   <span class="font-bold">
-    {{ user?.apellido }}
+    {{ ciudadano?.apellidos }}
   </span>
 </div>
 
 <div>
   <label class="w-24 inline-block" for="">Email:</label>
   <span class="font-bold">
-    {{ user?.email }}
+    {{ ciudadano?.email }}
   </span>
 </div>
 
 <div>
-  <label class="w-24 inline-block" for="">Perfil:</label>
+  <label class="w-24 inline-block" for="">Roles:</label>
   <span class="font-bold">
-    {{ user?.perfil }}
+    {{ ciudadano?.roles | json }}
   </span>
 </div>
 
 <div>
   <label class="w-24 inline-block" for="">Creado:</label>
   <span class="font-bold">
-    {{ user?.createdAt | date }}
+    {{ ciudadano?.createdAt | date }}
   </span>
 </div>
 
 <div>
   <label class="w-24 inline-block" for="">Modificado:</label>
   <span class="font-bold">
-    {{ user?.updatedAt | date }}
+    {{ ciudadano?.updatedAt | date }}
   </span>
 </div>
 <hr />

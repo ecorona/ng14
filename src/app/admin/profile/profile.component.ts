@@ -1,8 +1,8 @@
+import { Ciudadano } from './../../auth/models/ciudadano.model';
 import { Router } from '@angular/router';
 import { AuthService } from './../../auth/auth.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from 'src/app/auth/user.service';
-import { Usuario } from 'src/app/auth/models/usuario.model';
 import { Subject, takeUntil } from 'rxjs';
 import { ToastService } from 'src/app/common/services/toast.service';
 
@@ -11,7 +11,7 @@ import { ToastService } from 'src/app/common/services/toast.service';
   templateUrl: './profile.component.html',
 })
 export class ProfileComponent implements OnInit, OnDestroy {
-  user: Usuario | undefined;
+  ciudadano: Ciudadano | undefined;
 
   private unsubscribeAll: Subject<any> = new Subject<any>();
 
@@ -30,10 +30,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     console.log('Profile, suscrito.');
-    this.userService.user$
+    this.userService.ciudadano$
       .pipe(takeUntil(this.unsubscribeAll))
-      .subscribe((user) => {
-        this.user = user;
+      .subscribe((ciudadano) => {
+        this.ciudadano = ciudadano;
       });
   }
 

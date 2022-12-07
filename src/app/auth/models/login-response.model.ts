@@ -1,6 +1,6 @@
-import { Usuario } from './usuario.model';
+import { Ciudadano } from './ciudadano.model';
 
 export class LoginResponse {
-  accessToken!: string;
-  usuario!: Usuario;
+  access_token!: string;
+  ciudadano!: Ciudadano;
 }

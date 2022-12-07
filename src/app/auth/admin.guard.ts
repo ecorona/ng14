@@ -7,8 +7,8 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Perfiles } from './models/perfiles.enum';
 import { ToastService } from '../common/services/toast.service';
+import { Rol } from './models/rol';
 
 @Injectable({
   providedIn: 'root',
@@ -26,10 +26,14 @@ export class AdminGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    const autorizado = this.userService.usuarioObj?.perfil === Perfiles.ADMIN;
-    if (!autorizado) {
-      this.toast.message('Usted no tiene el perfil requerido');
+    if (
+      this.userService.ciudadanoObj &&
+      this.userService.ciudadanoObj.roles &&
+      this.userService.ciudadanoObj.roles.indexOf(Rol.Administrador) > -1
+    ) {
+      return true;
     }
-    return autorizado;
+    this.toast.message('Usted no tiene el perfil requerido');
+    return false;
   }
 }
