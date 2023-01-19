@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
 import { LoginResponse } from './models/login-response.model';
 import { Ciudadano } from './models/ciudadano.model';
+import { LocalstorageService } from '../common/services/local-storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,15 +14,16 @@ export class AuthService {
   private readonly _tokenKey = 'token724572456245';
   constructor(
     private readonly http: HttpClient,
-    private readonly userService: UserService
+    private readonly userService: UserService,
+    private readonly localstorageService: LocalstorageService
   ) {}
 
   set token(token: string) {
-    localStorage.setItem(this._tokenKey, token);
+    this.localstorageService.setItem(this._tokenKey, token);
   }
 
   get token(): string {
-    return localStorage.getItem(this._tokenKey) || '';
+    return this.localstorageService.getItem(this._tokenKey) || '';
   }
 
   isLoggedIn(): boolean {

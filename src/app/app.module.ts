@@ -18,9 +18,9 @@ import { MaterialCommonModule } from './common/material.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes, { useHash: true }),
+    RouterModule.forRoot(appRoutes, { useHash: true, initialNavigation: 'enabledBlocking' }),
     HttpClientModule,
     LayoutModule,
     MaterialCommonModule,
